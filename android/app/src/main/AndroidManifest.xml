@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.akash.food_chai">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="food_chai"
         android:name="${applicationName}"

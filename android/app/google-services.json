@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "454933061832",
+    "project_id": "food-chai",
+    "storage_bucket": "food-chai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454933061832:android:94f4a796e6265c7abbc5fd",
+        "android_client_info": {
+          "package_name": "com.akash.food_chai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454933061832-jjn8ni3ur3jtq31tjg8mjqs6ovhcreh8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.akash.food_chai",
+            "certificate_hash": "f2daac640995d9b2b90bbbed8c7d7657fd92ed55"
+          }
+        },
+        {
+          "client_id": "454933061832-se834gsjdgbhindj6s8dvdc6c6k4701j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlqSNaYRL4nr_PwF3TuR89fVpYKMfo0TI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454933061832-se834gsjdgbhindj6s8dvdc6c6k4701j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
