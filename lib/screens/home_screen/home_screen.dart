@@ -7,6 +7,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffc4bebe),
       drawer: const Drawer(),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
@@ -62,7 +63,8 @@ class HomeScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(right: 130, bottom: 10),
+                            padding:
+                                const EdgeInsets.only(right: 130, bottom: 10),
                             child: Container(
                               height: 50,
                               width: 100,
@@ -97,7 +99,7 @@ class HomeScreen extends StatelessWidget {
                             '25% Off',
                             style: TextStyle(
                                 fontSize: 35,
-                                color: Colors.lightGreen,
+                                color: Colors.purple,
                                 fontWeight: FontWeight.bold),
                           ),
                           Padding(
@@ -119,7 +121,42 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Vegetables'),
+                  Text(
+                    'view all',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              children: [
+                Container(
+                  height: 230,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    color: Color(0xF5F1F1FF),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Image.network(
+                            'https://e7.pngegg.com/pngimages/660/707/png-clipart-cabbage-vegetable-icon-single-cabbage-template-white.png'),
+                      ),
+                      Expanded(child: Container(),)
+                    ],
+                  ),
+                )
+              ],
+            ),
           ],
         ),
       ),
