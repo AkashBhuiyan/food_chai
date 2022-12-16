@@ -2,7 +2,122 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  Widget singleProducts() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 5),
+      height: 230,
+      width: 130,
+      decoration: BoxDecoration(
+        color: Color(0xF5F1F1FF),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Image.network(
+                'https://e7.pngegg.com/pngimages/660/707/png-clipart-cabbage-vegetable-icon-single-cabbage-template-white.png'),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 10, vertical: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'broccoli',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    '50Tk/500 Gram',
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 5),
+                          height: 30,
+                          width: 50,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.grey,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  '50 Gram',
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              ),
+                              Center(
+                                child: Icon(
+                                  Icons.arrow_drop_down,
+                                  size: 20,
+                                  color: Colors.yellow,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: 30,
+                          width: 50,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.grey,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                            mainAxisAlignment:
+                            MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.remove,
+                                size: 15,
+                                color: Colors.orange,
+                              ),
+                              Text(
+                                '1',
+                                style: TextStyle(
+                                  color: Colors.orange,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Icon(
+                                Icons.add,
+                                size: 15,
+                                color: Colors.orange,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +157,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        child: Column(
+        child: ListView(
           children: [
             Container(
               height: 150,
@@ -135,27 +250,42 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Row(
-              children: [
-                Container(
-                  height: 230,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    color: Color(0xF5F1F1FF),
-                    borderRadius: BorderRadius.circular(30),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Fresh Fruits'),
+                  Text(
+                    'view all',
+                    style: TextStyle(color: Colors.grey),
                   ),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Image.network(
-                            'https://e7.pngegg.com/pngimages/660/707/png-clipart-cabbage-vegetable-icon-single-cabbage-template-white.png'),
-                      ),
-                      Expanded(child: Container(),)
-                    ],
-                  ),
-                )
-              ],
+                ],
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                  singleProducts(),
+                ],
+              ),
             ),
           ],
         ),
