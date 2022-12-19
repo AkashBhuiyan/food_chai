@@ -1,158 +1,182 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_chai/config/colors.dart';
-import 'package:food_chai/screens/home_screen/drawer_side.dart';
+import 'package:food_chai/screens/home_screen/single_product.dart';
+import 'drawer_side.dart';
 
 class HomeScreen extends StatelessWidget {
-  Widget singleProducts() {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 5),
-      height: 230,
-      width: 130,
-      decoration: BoxDecoration(
-        color: Color(0xF5F1F1FF),
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            flex: 2,
-            child: Image.network(
-                'https://e7.pngegg.com/pngimages/660/707/png-clipart-cabbage-vegetable-icon-single-cabbage-template-white.png'),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'broccoli',
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    '50Tk/500 Gram',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 5),
-                          height: 30,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey,
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  '50 Gram',
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                              Center(
-                                child: Icon(
-                                  Icons.arrow_drop_down,
-                                  size: 20,
-                                  color: Colors.yellow,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                        child: Container(
-                          height: 30,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey,
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.remove,
-                                size: 15,
-                                color: Colors.orange,
-                              ),
-                              Text(
-                                '1',
-                                style: TextStyle(
-                                  color: Colors.orange,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Icon(
-                                Icons.add,
-                                size: 15,
-                                color: Colors.orange,
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+  Widget _buildHerbsProduct(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('Herbs Seasonings'),
+              Text(
+                'view all',
+                style: TextStyle(color: Colors.grey),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+
+              SingalProduct(
+                  productImage:
+                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+                  productName: ' 1',
+                  onTap: () {}),
+
+              SingalProduct(
+                  productImage:
+                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+                  productName: 'Herbs2',
+                  onTap: () {}),
+
+              SingalProduct(
+                  productImage:
+                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+                  productName: 'Herbs3',
+                  onTap: () {}),
+            ],
+          ),
+        ),
+      ],
     );
   }
+
+  Widget _buildFreshProduct(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('Herbs Seasonings'),
+              Text(
+                'view all',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+
+              SingalProduct(
+                  productImage:
+                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+                  productName: 'Herbs',
+                  onTap: () {}),
+
+              SingalProduct(
+                  productImage:
+                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+                  productName: 'Herbs',
+                  onTap: () {}),
+
+              SingalProduct(
+                  productImage:
+                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+                  productName: 'Herbs',
+                  onTap: () {}),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildRootProduct(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('Herbs Seasonings'),
+              Text(
+                'view all',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              SingalProduct(
+                  productImage:
+                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+                  productName: 'Herbs',
+                  onTap: () {}),
+
+              SingalProduct(
+                  productImage:
+                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+                  productName: 'Herbs',
+                  onTap: () {}),
+
+              SingalProduct(
+                  productImage:
+                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+                  productName: 'Herbs',
+                  onTap: () {}),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffc4bebe),
       drawer: DrawerSide(),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: primaryColor,
+        iconTheme: IconThemeData(color: textColor),
         title: Text(
           'Home',
-          style: TextStyle(color: Colors.black, fontSize: 18),
+          style: TextStyle(color: textColor, fontSize: 17),
         ),
         actions: [
           CircleAvatar(
-            radius: 12,
             backgroundColor: primaryColor,
+            radius: 12,
             child: Icon(
               Icons.search,
               size: 17,
-              color: Colors.black,
+              color: textColor,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: CircleAvatar(
-              radius: 12,
               backgroundColor: primaryColor,
+              radius: 12,
               child: Icon(
                 Icons.shop,
                 size: 17,
-                color: Colors.black,
+                color: textColor,
               ),
             ),
           ),
         ],
-        backgroundColor: Color(0xff3ec8cd),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -164,7 +188,7 @@ class HomeScreen extends StatelessWidget {
                 image: const DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(
-                      'https://www.eitfood.eu/files/_1200x514_crop_center-center_82_line/AdobeStock_102476307.jpeg'),
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0Xg-k622Sbztlrb-L1o1CAla3zCbVc2lUw&usqp=CAU'),
                 ),
                 color: Colors.red,
                 borderRadius: BorderRadius.circular(10),
@@ -173,61 +197,55 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 2,
-                    child: Container(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(right: 130, bottom: 10),
-                            child: Container(
-                              height: 50,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                color: primaryColor,
-                                borderRadius: BorderRadius.only(
-                                  bottomRight: Radius.circular(50),
-                                  bottomLeft: Radius.circular(50),
-                                ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(right: 130, bottom: 10),
+                          child: Container(
+                            height: 50,
+                            width: 100,
+                            decoration: const BoxDecoration(
+                              color: Color(0xffd1ad17),
+                              borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(50),
+                                bottomLeft: Radius.circular(50),
                               ),
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 15, top: 5),
-                                child: Text(
-                                  'Food Chai',
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    color: Colors.white,
-                                    shadows: [
-                                      BoxShadow(
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'Veggie',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  shadows: [
+                                    BoxShadow(
                                         color: Colors.green,
-                                        blurRadius: 3,
-                                        offset: Offset(3, 3),
-                                      ),
-                                    ],
-                                  ),
+                                        blurRadius: 10,
+                                        offset: Offset(3, 3))
+                                  ],
                                 ),
                               ),
                             ),
                           ),
-                          const Text(
-                            '25% Off',
+                        ),
+                        Text(
+                          '30% Off',
+                          style: TextStyle(
+                              fontSize: 40,
+                              color: Colors.green[100],
+                              fontWeight: FontWeight.bold),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 20),
+                          child: Text(
+                            'On all vegetables products',
                             style: TextStyle(
-                                fontSize: 35,
-                                color: Colors.purple,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 17),
-                            child: const Text(
-                              'On All groceries product, Condition apply',
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.black87,
-                              ),
+                              color: Colors.white,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(
@@ -236,56 +254,9 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Vegetables'),
-                  Text(
-                    'view all',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  singleProducts(),
-                  singleProducts(),
-                  singleProducts(),
-                  singleProducts(),
-                  singleProducts(),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Fresh Fruits'),
-                  Text(
-                    'view all',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  singleProducts(),
-                  singleProducts(),
-                  singleProducts(),
-                  singleProducts(),
-                  singleProducts(),
-                ],
-              ),
-            ),
+            _buildHerbsProduct(context),
+            _buildFreshProduct(context),
+            _buildRootProduct(context),
           ],
         ),
       ),

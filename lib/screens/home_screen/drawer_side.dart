@@ -1,5 +1,5 @@
 
-
+import 'package:food_chai/screens/home_screen/single_product.dart';
 import 'package:flutter/material.dart';
 import 'package:food_chai/screens/home_screen/home_screen.dart';
 
@@ -272,11 +272,10 @@ class DrawerSide extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  HomeScreen().singleProducts(),
-                  HomeScreen().singleProducts(),
-                  HomeScreen().singleProducts(),
-                  HomeScreen().singleProducts(),
-                  HomeScreen().singleProducts(),
+                  SingalProduct(productImage:
+                  ('https://cdn.britannica.com/39/187439-050-35BA4DCA/Broccoli-florets.jpg'),
+                      productName: ' 1',
+                      onTap: () {})
                 ],
               ),
             ),
@@ -297,11 +296,10 @@ class DrawerSide extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  HomeScreen().singleProducts(),
-                  HomeScreen().singleProducts(),
-                  HomeScreen().singleProducts(),
-                  HomeScreen().singleProducts(),
-                  HomeScreen().singleProducts(),
+                  SingalProduct(productImage:
+                    ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+                      productName: ' 1',
+                      onTap: () {})
                 ],
               ),
             ),
