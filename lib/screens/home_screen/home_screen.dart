@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:food_chai/config/colors.dart';
 import 'package:food_chai/screens/home_screen/single_product.dart';
+import 'package:food_chai/screens/product_overview/product_overview.dart';
 import 'drawer_side.dart';
 
 class HomeScreen extends StatelessWidget {
-  Widget _buildHerbsProduct(context) {
+  Widget _buildVegetableProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -25,20 +26,23 @@ class HomeScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-
-              SingalProduct(
+              SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: ' 1',
-                  onTap: () {}),
-
-              SingalProduct(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ProductOverView(),
+                      ),
+                    );
+                  }),
+              SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: 'Herbs2',
                   onTap: () {}),
-
-              SingalProduct(
+              SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: 'Herbs3',
@@ -50,7 +54,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildFreshProduct(context) {
+  Widget _buildFruitProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -71,20 +75,17 @@ class HomeScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-
-              SingalProduct(
+              SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: 'Herbs',
                   onTap: () {}),
-
-              SingalProduct(
+              SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: 'Herbs',
                   onTap: () {}),
-
-              SingalProduct(
+              SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: 'Herbs',
@@ -117,19 +118,17 @@ class HomeScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              SingalProduct(
+              SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: 'Herbs',
                   onTap: () {}),
-
-              SingalProduct(
+              SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: 'Herbs',
                   onTap: () {}),
-
-              SingalProduct(
+              SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: 'Herbs',
@@ -254,8 +253,8 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            _buildHerbsProduct(context),
-            _buildFreshProduct(context),
+            _buildVegetableProduct(context),
+            _buildFruitProduct(context),
             _buildRootProduct(context),
           ],
         ),

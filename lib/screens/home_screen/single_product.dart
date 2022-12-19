@@ -3,14 +3,14 @@ import 'package:food_chai/screens/product_overview/product_overview.dart';
 
 import '../../config/colors.dart';
 
-class SingalProduct extends StatelessWidget {
+class SingleProduct extends StatelessWidget {
   final String productImage;
 
   final String productName;
 
   final Function onTap;
 
-  SingalProduct({
+  SingleProduct({
     required this.productImage,
     required this.productName,
     required this.onTap,
@@ -37,7 +37,7 @@ class SingalProduct extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => ProductOverview(),
+                        builder: (context) => ProductOverView(),
                       ),
                     );
                   },
