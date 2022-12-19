@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text('Herbs Seasonings'),
+              Text('Vegetables'),
               Text(
                 'view all',
                 style: TextStyle(color: Colors.grey),
@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
               SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: ' 1',
+                  productName: 'Vegetable',
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -40,12 +40,12 @@ class HomeScreen extends StatelessWidget {
               SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs2',
+                  productName: 'Vegetable',
                   onTap: () {}),
               SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs3',
+                  productName: 'Vegetable',
                   onTap: () {}),
             ],
           ),
@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text('Herbs Seasonings'),
+              Text('Fruits'),
               Text(
                 'view all',
                 style: TextStyle(color: Colors.grey),
@@ -77,18 +77,18 @@ class HomeScreen extends StatelessWidget {
             children: [
               SingleProduct(
                   productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
+                      ('https://bd.all.biz/img/bd/catalog/1294.jpeg'),
+                  productName: 'Mango',
                   onTap: () {}),
               SingleProduct(
                   productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
+                      ('https://bd.all.biz/img/bd/catalog/1294.jpeg'),
+                  productName: 'Mango',
                   onTap: () {}),
               SingleProduct(
                   productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
+                      ('https://bd.all.biz/img/bd/catalog/1294.jpeg'),
+                  productName: 'Mango',
                   onTap: () {}),
             ],
           ),
@@ -213,9 +213,9 @@ class HomeScreen extends StatelessWidget {
                             ),
                             child: const Center(
                               child: Text(
-                                'Veggie',
+                                'Food Chai',
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 18,
                                   color: Colors.white,
                                   shadows: [
                                     BoxShadow(
