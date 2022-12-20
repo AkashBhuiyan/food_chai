@@ -205,7 +205,7 @@ class HomeScreen extends StatelessWidget {
                             height: 50,
                             width: 100,
                             decoration: const BoxDecoration(
-                              color: Color(0xffd1ad17),
+                              color: Color(0xff39b2b7),
                               borderRadius: BorderRadius.only(
                                 bottomRight: Radius.circular(50),
                                 bottomLeft: Radius.circular(50),
@@ -215,8 +215,8 @@ class HomeScreen extends StatelessWidget {
                               child: Text(
                                 'Food Chai',
                                 style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white,
+                                  fontSize: 17,
+                                  color: Colors.black87,
                                   shadows: [
                                     BoxShadow(
                                         color: Colors.green,

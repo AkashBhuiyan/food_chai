@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_chai/config/colors.dart';
 
-
-enum SinginCharacter {
-  fill, outline
-}
+enum SinginCharacter { fill, outline }
 
 class ProductOverView extends StatefulWidget {
   const ProductOverView({Key? key}) : super(key: key);
@@ -14,7 +11,6 @@ class ProductOverView extends StatefulWidget {
 }
 
 class _ProductOverViewState extends State<ProductOverView> {
-
   SinginCharacter _signin_character = SinginCharacter.fill;
 
   Widget bottomNavigatorBar(
@@ -70,72 +66,134 @@ class _ProductOverViewState extends State<ProductOverView> {
         ],
       ),
       appBar: AppBar(
+        backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: textColor),
         title: Text(
           "Product Overview",
           style: TextStyle(color: textColor),
         ),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text('Vegetable'),
-                    subtitle: Text("50Tk"),
-                  ),
-                  Container(
-                    height: 250,
-                    padding: EdgeInsets.all(40),
-                    child: Image.network(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0Xg-k622Sbztlrb-L1o1CAla3zCbVc2lUw&usqp=CAU"),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    width: double.infinity,
-                    child: Text(
-                      "Available Option",
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                          color: textColor, fontWeight: FontWeight.w600),
+      body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  children: [
+                    const ListTile(
+                      title: Text('Vegetable'),
+                      subtitle: Text("50Tk"),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 10,
+                    Container(
+                      height: 250,
+                      padding: EdgeInsets.all(5),
+                      child: Image.network(
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0Xg-k622Sbztlrb-L1o1CAla3zCbVc2lUw&usqp=CAU",
+                        width: MediaQuery.of(context).size.width,
+                      ),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 3,
-                              backgroundColor: Colors.green[700],
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      width: MediaQuery.of(context).size.width,
+                      child: Text(
+                        "Available Option",
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                            color: textColor, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 20, right: 10, left: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 3,
+                                backgroundColor: Colors.green[700],
+                              ),
+                              Radio(
+                                value: SinginCharacter.fill,
+                                groupValue: _signin_character,
+                                activeColor: Colors.green[700],
+                                onChanged: (value) {
+                                  setState(() {
+                                    _signin_character = value!;
+                                  });
+                                },
+                              ),
+                              Text("50Tk"),
+                            ],
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 30,
+                              vertical: 10,
                             ),
-                            Radio(
-                              value: SinginCharacter.fill,
-                              groupValue: _signin_character,
-                              activeColor: Colors.green[700],
-                              onChanged: (value){
-                                setState(() {
-                                  _signin_character = value!;
-                                });
-                              },
+                            decoration: BoxDecoration(
+
+                              border: Border.all(
+                                color: Colors.grey,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                30,
+                              ),
                             ),
-                          ],
-                        )
-                      ],
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.add,
+                                  size: 17,
+                                  color: primaryColor,
+                                ),
+                                Text(
+                                  'ADD',
+                                  style: TextStyle(color: primaryColor),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          textAlign: TextAlign.left,
+                          "About This Product",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Vegetables are usually classified on the basis of the part of the plant that is used for food. The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips. Stem vegetables include asparagus and kohlrabi. Among the edible tubers, or underground stems, are potatoes.",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: textColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
