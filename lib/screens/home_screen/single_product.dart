@@ -37,7 +37,11 @@ class SingleProduct extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => ProductOverView(),
+                        builder: (context) => ProductOverView(
+                          productImage:
+                              productImage,
+                          productName: productName,
+                        ),
                       ),
                     );
                   },

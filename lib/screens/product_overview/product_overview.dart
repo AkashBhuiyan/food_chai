@@ -4,8 +4,11 @@ import 'package:food_chai/config/colors.dart';
 enum SinginCharacter { fill, outline }
 
 class ProductOverView extends StatefulWidget {
-  const ProductOverView({Key? key}) : super(key: key);
 
+  final String productName;
+  final String productImage;
+
+  const ProductOverView({required this.productImage, required this.productName});
   @override
   State<ProductOverView> createState() => _ProductOverViewState();
 }
@@ -82,15 +85,15 @@ class _ProductOverViewState extends State<ProductOverView> {
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   children: [
-                    const ListTile(
-                      title: Text('Vegetable'),
+                    ListTile(
+                      title: Text(widget.productName??""),
                       subtitle: Text("50Tk"),
                     ),
                     Container(
                       height: 250,
                       padding: EdgeInsets.all(5),
                       child: Image.network(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0Xg-k622Sbztlrb-L1o1CAla3zCbVc2lUw&usqp=CAU",
+                        widget.productImage??"",
                         width: MediaQuery.of(context).size.width,
                       ),
                     ),
