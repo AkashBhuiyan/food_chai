@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_chai/config/colors.dart';
 import 'package:food_chai/screens/home_screen/single_product.dart';
 import 'package:food_chai/screens/product_overview/product_overview.dart';
+import 'package:food_chai/screens/search/search.dart';
 import 'drawer_side.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -34,7 +35,8 @@ class HomeScreen extends StatelessWidget {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => ProductOverView(
-                          productImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0Xg-k622Sbztlrb-L1o1CAla3zCbVc2lUw&usqp=CAU",
+                          productImage:
+                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0Xg-k622Sbztlrb-L1o1CAla3zCbVc2lUw&usqp=CAU",
                           productName: 'Vegetable',
                         ),
                       ),
@@ -157,10 +159,19 @@ class HomeScreen extends StatelessWidget {
           CircleAvatar(
             backgroundColor: primaryColor,
             radius: 12,
-            child: Icon(
-              Icons.search,
-              size: 17,
-              color: textColor,
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => Search(),
+                  ),
+                );
+              },
+              icon: Icon(
+                Icons.search,
+                size: 17,
+                color: textColor,
+              ),
             ),
           ),
           Padding(
