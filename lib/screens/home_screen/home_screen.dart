@@ -157,8 +157,8 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           CircleAvatar(
-            backgroundColor: primaryColor,
-            radius: 12,
+            backgroundColor: Color(0xEADEDDFF),
+            radius: 15,
             child: IconButton(
               onPressed: () {
                 Navigator.of(context).push(
@@ -177,8 +177,8 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: CircleAvatar(
-              backgroundColor: primaryColor,
-              radius: 12,
+              backgroundColor: Color(0xEADEDDFF),
+              radius: 15,
               child: Icon(
                 Icons.shop,
                 size: 17,

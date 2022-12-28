@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_chai/config/colors.dart';
-import 'package:food_chai/screens/search/search_item.dart';
+import 'package:food_chai/widgets/single_item.dart';
 
 class Search extends StatelessWidget {
   const Search({Key? key}) : super(key: key);
@@ -43,11 +43,11 @@ class Search extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          SearchItem(),
-          SearchItem(),
-          SearchItem(),
-          SearchItem(),
-          SearchItem(),
+          SingleItem(isBool: false),
+          SingleItem(isBool: false),
+          SingleItem(isBool: false),
+          SingleItem(isBool: false),
+          SingleItem(isBool: false),
         ],
       ),
     );
