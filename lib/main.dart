@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:food_chai/config/colors.dart';
+import 'package:food_chai/providers/product_provider.dart';
 import 'package:food_chai/screens/home_screen/home_screen.dart';
+import 'package:provider/provider.dart';
 
 import 'auth/sign_in.dart';
 
@@ -16,13 +18,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor:  primaryColor,
-        scaffoldBackgroundColor: scaffoldBackgroundColor
+    return ChangeNotifierProvider<ProductProvider>(
+      create: (context)=> ProductProvider(),
+      child: MaterialApp(
+        theme: ThemeData(
+          primaryColor:  primaryColor,
+          scaffoldBackgroundColor: scaffoldBackgroundColor
+        ),
+        debugShowCheckedModeBanner: false,
+        home: SignIn(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: SignIn(),
     );
   }
 }

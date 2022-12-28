@@ -7,12 +7,14 @@ class SingleProduct extends StatelessWidget {
   final String productImage;
 
   final String productName;
+  final int productPrice;
 
   final Function onTap;
 
   SingleProduct({
     required this.productImage,
     required this.productName,
+    required this.productPrice,
     required this.onTap,
   });
 
@@ -41,6 +43,7 @@ class SingleProduct extends StatelessWidget {
                           productImage:
                               productImage,
                           productName: productName,
+                          productPrice: productPrice,
                         ),
                       ),
                     );
@@ -70,7 +73,7 @@ class SingleProduct extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '50\$50 Gram',
+                          '$productPrice\ Tk 500 Gram',
                           style: TextStyle(color: Colors.grey),
                         ),
                         SizedBox(

@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:food_chai/config/colors.dart';
+import 'package:food_chai/providers/product_provider.dart';
 import 'package:food_chai/screens/home_screen/single_product.dart';
 import 'package:food_chai/screens/product_overview/product_overview.dart';
 import 'package:food_chai/screens/search/search.dart';
+import 'package:provider/provider.dart';
 import 'drawer_side.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late ProductProvider productProvider;
+
   Widget _buildVegetableProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,33 +37,26 @@ class HomeScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Vegetable',
+            children: productProvider.getVegetablesProductDataList.map(
+              (vegetables) {
+                return SingleProduct(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => ProductOverView(
-                          productImage:
-                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0Xg-k622Sbztlrb-L1o1CAla3zCbVc2lUw&usqp=CAU",
-                          productName: 'Vegetable',
+                          productImage: vegetables.productImage,
+                          productName: vegetables.productName,
+                          productPrice: vegetables.productPrice,
                         ),
                       ),
                     );
-                  }),
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Vegetable',
-                  onTap: () {}),
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Vegetable',
-                  onTap: () {}),
-            ],
+                  },
+                  productImage:vegetables.productImage,
+                  productName: vegetables.productName,
+                  productPrice: vegetables.productPrice,
+                );
+              },
+            ).toList(),
           ),
         ),
       ],
@@ -83,14 +87,17 @@ class HomeScreen extends StatelessWidget {
               SingleProduct(
                   productImage: ('https://bd.all.biz/img/bd/catalog/1294.jpeg'),
                   productName: 'Mango',
+                  productPrice: 45,
                   onTap: () {}),
               SingleProduct(
                   productImage: ('https://bd.all.biz/img/bd/catalog/1294.jpeg'),
                   productName: 'Mango',
+                  productPrice: 45,
                   onTap: () {}),
               SingleProduct(
                   productImage: ('https://bd.all.biz/img/bd/catalog/1294.jpeg'),
                   productName: 'Mango',
+                  productPrice: 45,
                   onTap: () {}),
             ],
           ),
@@ -124,16 +131,19 @@ class HomeScreen extends StatelessWidget {
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: 'Herbs',
+                  productPrice: 45,
                   onTap: () {}),
               SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: 'Herbs',
+                  productPrice: 45,
                   onTap: () {}),
               SingleProduct(
                   productImage:
                       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
                   productName: 'Herbs',
+                  productPrice: 45,
                   onTap: () {}),
             ],
           ),
@@ -142,10 +152,17 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  const HomeScreen({Key? key}) : super(key: key);
+  void initState() {
+    ProductProvider productProvider = Provider.of(context, listen: false);
+    productProvider.fetchVegetablesProductData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    productProvider = Provider.of(
+      context,
+    );
     return Scaffold(
       drawer: DrawerSide(),
       appBar: AppBar(

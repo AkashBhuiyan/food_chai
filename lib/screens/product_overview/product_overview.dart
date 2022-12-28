@@ -7,8 +7,9 @@ class ProductOverView extends StatefulWidget {
 
   final String productName;
   final String productImage;
+  final int productPrice;
 
-  const ProductOverView({required this.productImage, required this.productName});
+  const ProductOverView({required this.productImage, required this.productName, required this.productPrice});
   @override
   State<ProductOverView> createState() => _ProductOverViewState();
 }
@@ -87,7 +88,7 @@ class _ProductOverViewState extends State<ProductOverView> {
                   children: [
                     ListTile(
                       title: Text(widget.productName??""),
-                      subtitle: Text("50Tk"),
+                      subtitle: Text("${widget.productPrice} Tk"),
                     ),
                     Container(
                       height: 250,
