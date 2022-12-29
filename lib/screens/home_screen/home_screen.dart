@@ -265,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: const DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0Xg-k622Sbztlrb-L1o1CAla3zCbVc2lUw&usqp=CAU'),
+                      'https://www.thespruceeats.com/thmb/6lfcov0DyrPVtE6zhX2law4RFA4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/freshvegetablesAlexRaths-4c1ea186a88e4fd7b95283eee614600c.jpg'),
                 ),
                 color: Colors.red,
                 borderRadius: BorderRadius.circular(10),
