@@ -2,8 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:food_chai/config/colors.dart';
 import 'package:food_chai/widgets/single_item.dart';
 
-class Search extends StatelessWidget {
-  const Search({Key? key}) : super(key: key);
+import '../../models/product_model.dart';
+
+enum SinginCharacter { lowToHigh, highToLow, alphabetically }
+
+class Search extends StatefulWidget {
+  late final List<ProductModel> search;
+
+  Search({required this.search});
+
+  @override
+  State<Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  SinginCharacter _character = SinginCharacter.alphabetically;
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +43,8 @@ class Search extends StatelessWidget {
             child: TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none
-                ),
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide.none),
                 fillColor: Color(0xffc2c2c2),
                 filled: true,
                 hintText: "Search for item in the store",
@@ -43,11 +55,16 @@ class Search extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          SingleItem(isBool: false),
-          SingleItem(isBool: false),
-          SingleItem(isBool: false),
-          SingleItem(isBool: false),
-          SingleItem(isBool: false),
+          Column(
+            children: widget.search.map((data) {
+              return SingleItem(
+                isBool: false,
+                productImage: data.productImage,
+                productName: data.productName,
+                productPrice: data.productPrice,
+              );
+            }).toList(),
+          ),
         ],
       ),
     );

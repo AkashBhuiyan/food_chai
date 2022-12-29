@@ -25,11 +25,22 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text('Vegetables'),
-              Text(
-                'view all',
-                style: TextStyle(color: Colors.grey),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        search: productProvider.getVegetablesProductDataList,
+                      ),
+                    ),
+                  );
+                },
+                child: Text(
+                  'view all',
+                  style: TextStyle(color: Colors.grey),
+                ),
               ),
             ],
           ),
@@ -51,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  productImage:vegetables.productImage,
+                  productImage: vegetables.productImage,
                   productName: vegetables.productName,
                   productPrice: vegetables.productPrice,
                 );
@@ -71,11 +82,22 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text('Fruits'),
-              Text(
-                'view all',
-                style: TextStyle(color: Colors.grey),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        search: productProvider.getFruitsProductDataList,
+                      ),
+                    ),
+                  );
+                },
+                child: Text(
+                  'view all',
+                  style: TextStyle(color: Colors.grey),
+                ),
               ),
             ],
           ),
@@ -84,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: productProvider.getFruitsProductDataList.map(
-                  (fruits) {
+              (fruits) {
                 return SingleProduct(
                   onTap: () {
                     Navigator.of(context).push(
@@ -97,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  productImage:fruits.productImage,
+                  productImage: fruits.productImage,
                   productName: fruits.productName,
                   productPrice: fruits.productPrice,
                 );
@@ -117,11 +139,22 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text('Groceries'),
-              Text(
-                'view all',
-                style: TextStyle(color: Colors.grey),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        search: productProvider.getGroceriesProductDataList,
+                      ),
+                    ),
+                  );
+                },
+                child: Text(
+                  'view all',
+                  style: TextStyle(color: Colors.grey),
+                ),
               ),
             ],
           ),
@@ -134,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: productProvider.getGroceriesProductDataList.map(
-                        (groceries) {
+                    (groceries) {
                       return SingleProduct(
                         onTap: () {
                           Navigator.of(context).push(
@@ -147,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         },
-                        productImage:groceries.productImage,
+                        productImage: groceries.productImage,
                         productName: groceries.productName,
                         productPrice: groceries.productPrice,
                       );
@@ -192,7 +225,9 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => Search(),
+                    builder: (context) => Search(
+                      search: [],
+                    ),
                   ),
                 );
               },

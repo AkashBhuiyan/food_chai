@@ -3,10 +3,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:food_chai/models/product_model.dart';
 
 class ProductProvider with ChangeNotifier {
-
-
   late ProductModel productModel;
 
+  productModels(QueryDocumentSnapshot element) {
+    productModel = ProductModel(
+      productImage: element.get("productImage"),
+      productName: element.get("productName"),
+      productPrice: element.get("productPrice"),
+    );
+  }
 
   ////////////////// Vegetable Products ////////////////////////
 
@@ -19,15 +24,11 @@ class ProductProvider with ChangeNotifier {
 
     value.docs.forEach(
       (element) {
-        productModel = ProductModel(
-          productImage: element.get("productImage"),
-          productName: element.get("productName"),
-          productPrice: element.get("productPrice"),
-        );
+        productModels(element);
         newList.add(productModel);
       },
     );
-    vegetableProductList =  newList;
+    vegetableProductList = newList;
     notifyListeners();
   }
 
@@ -42,20 +43,16 @@ class ProductProvider with ChangeNotifier {
   fetchFruitsProductData() async {
     List<ProductModel> newList = [];
     QuerySnapshot value =
-    await FirebaseFirestore.instance.collection("Fruits").get();
+        await FirebaseFirestore.instance.collection("Fruits").get();
 
     value.docs.forEach(
-          (element) {
-            print(element.data());
-        productModel = ProductModel(
-          productImage: element.get("productImage"),
-          productName: element.get("productName"),
-          productPrice: element.get("productPrice"),
-        );
+      (element) {
+        print(element.data());
+        productModels(element);
         newList.add(productModel);
       },
     );
-    fruitsProductList =  newList;
+    fruitsProductList = newList;
     notifyListeners();
   }
 
@@ -70,19 +67,15 @@ class ProductProvider with ChangeNotifier {
   fetchGroceriesProductData() async {
     List<ProductModel> newList = [];
     QuerySnapshot value =
-    await FirebaseFirestore.instance.collection("Groceries").get();
+        await FirebaseFirestore.instance.collection("Groceries").get();
 
     value.docs.forEach(
-          (element) {
-        productModel = ProductModel(
-          productImage: element.get("productImage"),
-          productName: element.get("productName"),
-          productPrice: element.get("productPrice"),
-        );
+      (element) {
+        productModels(element);
         newList.add(productModel);
       },
     );
-    groceriesProductList =  newList;
+    groceriesProductList = newList;
     notifyListeners();
   }
 

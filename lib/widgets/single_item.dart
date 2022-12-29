@@ -3,8 +3,15 @@ import 'package:food_chai/config/colors.dart';
 
 class SingleItem extends StatelessWidget {
   bool isBool = false;
+  late String productName;
+  late String productImage;
+  late int productPrice;
 
-  SingleItem({required this.isBool});
+  SingleItem(
+      {required this.isBool,
+      required this.productImage,
+      required this.productName,
+      required this.productPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,8 @@ class SingleItem extends StatelessWidget {
                     height: 100,
                     child: Center(
                       child: Image.network(
-                          'https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+                        productImage,
+                      ),
                     ),
                   ),
                 ),
@@ -38,12 +46,13 @@ class SingleItem extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              "Product Name",
+                              productName,
                               style: TextStyle(
-                                  color: textColor, fontWeight: FontWeight.bold),
+                                  color: textColor,
+                                  fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              "50tk/500Gram",
+                              "$productPrice\ Tk",
                               style: TextStyle(
                                 color: Colors.grey,
                               ),
@@ -167,9 +176,9 @@ class SingleItem extends StatelessWidget {
         isBool == false
             ? Container()
             : Divider(
-          height: 1,
-          color: Colors.black45,
-        ),
+                height: 1,
+                color: Colors.black45,
+              ),
       ],
     );
   }

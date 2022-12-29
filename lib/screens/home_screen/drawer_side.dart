@@ -3,6 +3,8 @@ import 'package:food_chai/config/colors.dart';
 import 'package:food_chai/screens/review_cart/review_cart.dart';
 import 'package:food_chai/screens/user_profile/user_profile.dart';
 
+import 'home_screen.dart';
+
 class DrawerSide extends StatelessWidget {
   Widget listTitle(
       {required IconData icon,
@@ -71,7 +73,13 @@ class DrawerSide extends StatelessWidget {
             listTitle(
               icon: Icons.home_outlined,
               title: "Home",
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  ),
+                );
+              },
             ),
             listTitle(
               icon: Icons.shop_outlined,
