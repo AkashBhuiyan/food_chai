@@ -226,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => Search(
-                      search: [],
+                      search: productProvider.getAllProductSearch,
                     ),
                   ),
                 );

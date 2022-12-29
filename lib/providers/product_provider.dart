@@ -5,12 +5,15 @@ import 'package:food_chai/models/product_model.dart';
 class ProductProvider with ChangeNotifier {
   late ProductModel productModel;
 
+  List<ProductModel> search = [];
+
   productModels(QueryDocumentSnapshot element) {
     productModel = ProductModel(
       productImage: element.get("productImage"),
       productName: element.get("productName"),
       productPrice: element.get("productPrice"),
     );
+    search.add(productModel);
   }
 
   ////////////////// Vegetable Products ////////////////////////
@@ -82,4 +85,10 @@ class ProductProvider with ChangeNotifier {
   List<ProductModel> get getGroceriesProductDataList {
     return groceriesProductList;
   }
+
+  ////////////////search Return /////////////
+  List<ProductModel> get getAllProductSearch {
+    return search;
+  }
+
 }
