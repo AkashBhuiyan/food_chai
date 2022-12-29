@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:food_chai/config/colors.dart';
 import 'package:food_chai/providers/product_provider.dart';
+import 'package:food_chai/providers/review_cart_provider.dart';
 import 'package:food_chai/providers/user_provider.dart';
 import 'package:food_chai/screens/home_screen/home_screen.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<UserProvider>(
           create: (context) => UserProvider(),
+        ),
+        ChangeNotifierProvider<ReviewCartProvider>(
+          create: (context) => ReviewCartProvider(),
         ),
       ],
       child: MaterialApp(

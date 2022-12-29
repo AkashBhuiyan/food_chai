@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:food_chai/config/colors.dart';
+import 'package:food_chai/providers/review_cart_provider.dart';
+import 'package:provider/provider.dart';
 
 class Count extends StatefulWidget {
+  late String productName;
+  late String productImage;
+  late String productId;
+  late int productQuantity;
+  late int productPrice;
+
+  Count({
+    required this.productId,
+    required this.productName,
+    required this.productImage,
+    required this.productQuantity,
+    required this.productPrice,
+  });
+
   @override
   State<Count> createState() => _CountState();
 }
@@ -12,6 +28,7 @@ class _CountState extends State<Count> {
 
   @override
   Widget build(BuildContext context) {
+    ReviewCartProvider reviewCartProvider = Provider.of(context);
     return Container(
         height: 25,
         width: 50,
@@ -26,13 +43,13 @@ class _CountState extends State<Count> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
-                    onTap: (){
-                      if(count == 1) {
+                    onTap: () {
+                      if (count == 1) {
                         setState(() {
                           isTrue = false;
                         });
                       }
-                      if(count > 1) {
+                      if (count > 1) {
                         setState(() {
                           count--;
                         });
@@ -50,7 +67,7 @@ class _CountState extends State<Count> {
                         color: Colors.brown, fontWeight: FontWeight.bold),
                   ),
                   InkWell(
-                    onTap: (){
+                    onTap: () {
                       setState(() {
                         count++;
                       });
@@ -69,6 +86,12 @@ class _CountState extends State<Count> {
                     setState(() {
                       isTrue = true;
                     });
+                    reviewCartProvider.addReviewCartData(
+                        cartId: widget.productId,
+                        cartName: widget.productName,
+                        cartImage: widget.productImage,
+                        cartPrice: widget.productPrice,
+                        cartQuantity: count);
                   },
                   child: Text(
                     "ADD",

@@ -9,10 +9,12 @@ class SingleProduct extends StatelessWidget {
 
   final String productName;
   final int productPrice;
+  final String productId;
 
   final Function onTap;
 
   SingleProduct({
+    required this.productId,
     required this.productImage,
     required this.productName,
     required this.productPrice,
@@ -122,7 +124,13 @@ class SingleProduct extends StatelessWidget {
                               width: 5,
                             ),
 
-                            Count(),
+                            Count(
+                              productId: productId,
+                              productName: productName,
+                              productImage: productImage,
+                              productPrice: productPrice,
+                              productQuantity: 1,
+                            ),
                           ],
                         ),
                       ],

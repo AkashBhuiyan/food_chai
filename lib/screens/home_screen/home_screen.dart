@@ -62,6 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
+                  productId: vegetables.productId,
                   productImage: vegetables.productImage,
                   productName: vegetables.productName,
                   productPrice: vegetables.productPrice,
@@ -119,6 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
+                  productId: fruits.productId,
                   productImage: fruits.productImage,
                   productName: fruits.productName,
                   productPrice: fruits.productPrice,
@@ -180,6 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         },
+                        productId: groceries.productId,
                         productImage: groceries.productImage,
                         productName: groceries.productName,
                         productPrice: groceries.productPrice,
