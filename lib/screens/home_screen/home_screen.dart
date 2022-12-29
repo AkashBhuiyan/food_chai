@@ -83,23 +83,26 @@ class _HomeScreenState extends State<HomeScreen> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              SingleProduct(
-                  productImage: ('https://bd.all.biz/img/bd/catalog/1294.jpeg'),
-                  productName: 'Mango',
-                  productPrice: 45,
-                  onTap: () {}),
-              SingleProduct(
-                  productImage: ('https://bd.all.biz/img/bd/catalog/1294.jpeg'),
-                  productName: 'Mango',
-                  productPrice: 45,
-                  onTap: () {}),
-              SingleProduct(
-                  productImage: ('https://bd.all.biz/img/bd/catalog/1294.jpeg'),
-                  productName: 'Mango',
-                  productPrice: 45,
-                  onTap: () {}),
-            ],
+            children: productProvider.getFruitsProductDataList.map(
+                  (fruits) {
+                return SingleProduct(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ProductOverView(
+                          productImage: fruits.productImage,
+                          productName: fruits.productName,
+                          productPrice: fruits.productPrice,
+                        ),
+                      ),
+                    );
+                  },
+                  productImage:fruits.productImage,
+                  productName: fruits.productName,
+                  productPrice: fruits.productPrice,
+                );
+              },
+            ).toList(),
           ),
         ),
       ],
@@ -115,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text('Herbs Seasonings'),
+              Text('Groceries'),
               Text(
                 'view all',
                 style: TextStyle(color: Colors.grey),
@@ -127,24 +130,31 @@ class _HomeScreenState extends State<HomeScreen> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
-                  productPrice: 45,
-                  onTap: () {}),
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
-                  productPrice: 45,
-                  onTap: () {}),
-              SingleProduct(
-                  productImage:
-                      ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-                  productName: 'Herbs',
-                  productPrice: 45,
-                  onTap: () {}),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: productProvider.getGroceriesProductDataList.map(
+                        (groceries) {
+                      return SingleProduct(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => ProductOverView(
+                                productImage: groceries.productImage,
+                                productName: groceries.productName,
+                                productPrice: groceries.productPrice,
+                              ),
+                            ),
+                          );
+                        },
+                        productImage:groceries.productImage,
+                        productName: groceries.productName,
+                        productPrice: groceries.productPrice,
+                      );
+                    },
+                  ).toList(),
+                ),
+              ),
             ],
           ),
         ),
@@ -155,6 +165,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     ProductProvider productProvider = Provider.of(context, listen: false);
     productProvider.fetchVegetablesProductData();
+    productProvider.fetchFruitsProductData();
+    productProvider.fetchGroceriesProductData();
     super.initState();
   }
 
